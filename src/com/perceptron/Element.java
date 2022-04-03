@@ -14,9 +14,9 @@ public class Element {
     }
 
     public Element (String[] line){
-        // -1 bo size , -1 bo ostatni ele to nazwa
+        // -1 bo ostatni ele to nazwa
         List<Double> coor_temp = new ArrayList<>();
-        for (int i = 0; i < line.length-2; i++) {
+        for (int i = 0; i < line.length-1; i++) {
             coor_temp.add(Double.valueOf(line[i]));
         }
         this.coordinates=coor_temp;
