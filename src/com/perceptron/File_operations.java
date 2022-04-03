@@ -32,6 +32,15 @@ public class File_operations {
         return lines;
 
     }
+    
+    public static List<Element> create_element_list (List<String > lines) {
+        List<Element> temp_list = new ArrayList<>();
+        for (String ele: lines
+             ) {
+            temp_list.add(new Element (ele.split(",")));
+        }
+        return temp_list;
+    }
 
 
 }
