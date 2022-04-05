@@ -42,5 +42,9 @@ public class File_operations {
         return temp_list;
     }
 
+    public static List<Element> list_from_file (String path){
+        return create_element_list(create_list(path));
+    }
+
 
 }
