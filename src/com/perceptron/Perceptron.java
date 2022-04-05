@@ -1,5 +1,6 @@
 package com.perceptron;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Perceptron {
@@ -12,7 +13,7 @@ public class Perceptron {
     final double stala_uczenia ;
     final double akceptowalny_procent_bladow ;
     double prog_odchylenia = 3 ;
-    private List<Double> wagi ;
+    private List<Double> wagi = new ArrayList<>();
     private int number_of_wagi ;
 
     public Perceptron(int number_of_wagi , double stala_uczenia , double procent_bledow) {
@@ -24,11 +25,11 @@ public class Perceptron {
         }
         this.stala_uczenia=stala_uczenia;
         this.akceptowalny_procent_bladow=procent_bledow;
-        System.out.println("------------\nPerceptron created");
+        System.out.println("\nPerceptron created\n------------");
     }
 
     public void wypisz_wagi (){
-        System.out.print("Aktualne wagi");
+        System.out.print("Wagi : ");
         for (Double e: wagi
              ) {
             System.out.print(e + " ");
@@ -37,9 +38,9 @@ public class Perceptron {
         System.out.print("\nProg odchylenia: "+ prog_odchylenia + "\n");
     }
 
-    private void learn (List<Double> tested , int szacowany , int prawdziwy ) {
+    public void learn (List<Double> tested , int szacowany , int prawdziwy ) {
 
-            List<Double> nowa_waga = null;
+            List<Double> nowa_waga = new ArrayList<>();
 
             for (int i = 0; i < tested.size(); i++) {
 
@@ -52,7 +53,7 @@ public class Perceptron {
 
     }
 
-    private int guess (List<Double> tested){
+    public int guess (List<Double> tested){
         /*
         Wariant versicolor = 0
         Wariant virginica = 1
