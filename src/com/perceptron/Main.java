@@ -18,7 +18,7 @@ public class Main {
         List<Element> zbior_testowy = File_operations.list_from_file("Dane\\perceptron.test.data.txt");
 
 
-        
+
 
     }
 }
