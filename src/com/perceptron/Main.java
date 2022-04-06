@@ -1,6 +1,6 @@
 package com.perceptron;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -12,7 +12,7 @@ public class Main {
         Wariant versicolor = 0
         Wariant virginica = 1
          */
-        boolean user_input = false;
+        boolean is_user_input = true;
 
         final int learn_loop_limit = 100;
         boolean loop_bool = true;
@@ -87,9 +87,9 @@ public class Main {
             loop_iterations+=1;
         }
 
-        System.out.println("\n" + (user_input ? "User input ":"Test from file ") + "detected \n") ;
+        System.out.println("\n" + (is_user_input ? "User input ":"Test from file ") + "detected \n") ;
 
-        if (!user_input){
+        if (!is_user_input){
             //file input
              ilosc_testowanych=0.0;
              ilosc_poprawnie_klasyfikowanych=0.0;
@@ -121,8 +121,40 @@ public class Main {
         }
         else {
             //user input placeholder
-            System.out.println("Aktualna ,,szerokość'' perceptronu :" + perceptron.number_of_wagi + "\n");
+            System.out.println("Aktualna ,,szerokość'' perceptronu :" + perceptron.number_of_wagi +  "\nAby wyjść wpisz qqq");
 
+            String[] user_input= null;
+            Scanner in = new Scanner(System.in);
+
+            while (true){
+                System.out.println("Podaj lokalizacje zmiennej oddzielonej przecinkami (double)");
+                user_input = (in.next()).split(",");
+                //       System.out.println(user_input[0]);
+                if (user_input[0].equals("qqq")){
+                    break;
+                }
+                List<Double> coodrinates = new ArrayList<>();
+
+                try {
+                    for (String ele : user_input
+                    ) {
+                        coodrinates.add(Double.parseDouble(ele));
+                    }
+                }
+                catch (Exception e ){
+                    //potencjalny argument nie jest liczbą
+                    System.out.println("Jeden z argumentów nie jest liczbą");
+                    continue;
+                }
+                /*
+                Wariant versicolor = 0
+                Wariant virginica = 1
+                */
+
+                System.out.println("Zgadywany typ to : " + pomo_typy.get(perceptron.guess(coodrinates)) );
+
+
+            }
 
         }
 

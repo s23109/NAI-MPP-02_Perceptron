@@ -74,4 +74,14 @@ public class Perceptron {
         return 0;
     }
 
+    public int guess (List<Double> coordinates){
+
+        if (funkcja_aktywacji(obliczNet(new Element("test" , coordinates)))) {
+            return 1;
+        }
+        return 0;
+
+    }
+
+
 }
