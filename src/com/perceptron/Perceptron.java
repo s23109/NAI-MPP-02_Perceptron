@@ -14,7 +14,7 @@ public class Perceptron {
     final double akceptowalny_procent_bladow;
     private double Teta;
     private List<Double> wagi = new ArrayList<>();
-    private int number_of_wagi;
+    public int number_of_wagi;
 
     public Perceptron(int number_of_wagi, double stala_uczenia, double procent_bledow) {
         this.number_of_wagi = number_of_wagi;
